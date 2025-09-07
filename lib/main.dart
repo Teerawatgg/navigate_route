@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/detail_screen.dart';
+import 'screens/third_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
         DetailScreen.routeName: (context) => const DetailScreen(),
+        ThirdScreen.routeName: (context) => const ThirdScreen(),
         // เพิ่ม screens อื่นๆ ที่นี่ภายหลัง
       },
     );

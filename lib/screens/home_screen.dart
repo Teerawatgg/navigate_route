@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navigate_route/screens/detail_screen.dart';
-
+import 'package:navigate_route/screens/third_screen.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = '/home'; // กำหนดชื่อ route
   const HomeScreen({super.key});
@@ -13,36 +13,35 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
+              ElevatedButton(
+              onPressed: () async {
+                final result = await Navigator.pushNamed(
                   context,
                   DetailScreen.routeName,
                   arguments: {
-                    // ส่ง arguments เป็น Map
-                    'id': 'ARG-789',
-                    'title': 'ข้อมูลจาก Named Route Args',
+                    'ItemId': 'Item-789',
+                    'massage': 'ข้อมูลจาก Named Route Args',
                   },
                 );
+                print('returned result: $result');
               },
               child: const Text('ไปที่รายละเอียด'),
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: (
 
-              ) {
-                Navigator.pushNamed(
+            ElevatedButton(
+              onPressed: () async {
+                final result = await Navigator.pushNamed(
                   context,
-                  DetailScreen.routeName,
+                  ThirdScreen.routeName,
                   arguments: {
-                    // ส่ง arguments เป็น Map
-                    'id': 'ARG-123',
-                    'title': 'ข้อมูลจาก Named Route Args 123',
+                    'ItemId': 'Item-123',
+                    'massage': 'ข้อมูลจาก กระดาษเปล่า',
                   },
                 );
+                print('returned result: $result');
               },
-              child: const Text('กกดที่ ต่อไป'),
+              child: const Text('ไปที่หน้ากระดาษเปล่า'),
             ),
           ],
         ),
